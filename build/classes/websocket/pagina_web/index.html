@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagina WebSocket Comentario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="retorno" style="width: 200px; height: 200px; display: block; background-color: #00FFFF" ></div>
+        <form id="formularioComentario">
+            <input type="text" name="descricao" />
+            <input type="submit" value="Enviar" onclick="submeter()">
+        </form>
+        
+                    
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:8080/ExWebSocket/acoes");
+            socket.onmessage = mensagemConfirmacao;
+            
+            function submeter(){
+                var descricao = document.getElementById("formularioComentario").elements["descricao"].value;
+                var acaoUsuario = {acao: "adicionar", descricao: descricao};
+                socket.send(JSON.stringify(acaoUsuario));
+            }
+            
+            function mensagemConfirmacao(e){
+                var retorno = document.getElementById("retorno");
+                var comentario = JSON.parse(e.data);
+
+                if(comentario.acao === "comentarioAdicionado"){
+                    var novoComentario = document.createElement("div");
+                    novoComentario.innerHTML = "Novo comentario: "+comentario.descricao;
+                    retorno.appendChild(novoComentario);
+                }
+            }
+        </script>
+    </body>
+</html>
