@@ -11,6 +11,7 @@ public class Tela extends JComponent{
 
     public Tela(){
         alvo = (int) (Math.random()*area)+1;
+        System.out.println("alvo: "+alvo);
     }
     
     public Flecha getTentativa() {
@@ -32,7 +33,7 @@ public class Tela extends JComponent{
         g.drawString(tentativa.getNome(), tentativa.getX()-(tentativa.getX()/2), tentativa.getY());
         g.fillOval(tentativa.getX(), tentativa.getY(), TAM, TAM);
         
-        if((tentativa.getX() >= alvo) && (tentativa.getY()+TAM <= alvo+TAM)){
+        if((tentativa.getX() == alvo) && (tentativa.getY() == area)){
             g.setColor(Color.darkGray);
             g.drawString("PARABENS: "+tentativa.getNome()+", Vc acertou", 0, TAM*10);
             System.out.println("Acertou");

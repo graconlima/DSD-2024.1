@@ -9,11 +9,11 @@ public class Arco {
     public Arco(){
         
         try{
-        //10.25.1.31
+        //10.25.2.30
         Socket s = new Socket("localhost", 2000);
         OutputStream os = s.getOutputStream();
         
-        String str = "meu_nome:100:70";
+        String str = "meu_nome:3:70";
         os.write(str.getBytes());
         s.close();
         
