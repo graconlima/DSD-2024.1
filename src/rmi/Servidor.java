@@ -7,6 +7,9 @@ public class Servidor{
                 try{
                         Calculadora stub = new CalculadoraRemota();
                         Naming.rebind("rmi://localhost:5000/calculadora", stub);
-                }catch(Exception e){}
+                        System.out.println("Servidor em funcionanmento");
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
         }
 }

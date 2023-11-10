@@ -6,6 +6,9 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 public class ServidorRMI implements OlaRMI{    
     public String oi() throws RemoteException{
+        
+        System.out.println("Ola acessado");
+        
         return "Ola Mundosss!";
     }
     public static void main(String args[]){
