@@ -39,6 +39,5 @@ public class ServidorMulticast {
     public static void main(String args[]){
     
         ServidorMulticast s = new ServidorMulticast();
-        System.out.println("Servidor iniciado!");
     }
 }

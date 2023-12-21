@@ -20,7 +20,6 @@ public class ServidorGrupo {
     private byte[] b = new byte[1000];
     
     public ServidorGrupo() {
-
         System.out.println("Servidor iniciado!");
 
         try {
