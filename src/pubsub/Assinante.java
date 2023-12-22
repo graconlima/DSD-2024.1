@@ -6,8 +6,15 @@ import javax.naming.InitialContext;
 public class Assinante {
     public static void main(String[] args) {
         try {
+            Properties p = new Properties();
+            p.setProperty("org.omg.CORBA.ORBInitialHost", "10.25.2.30");
+            p.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
             
-            InitialContext ic = new InitialContext();
+            System.setProperty("org.omg.CORBA.ORBInitialHost", "10.25.2.30");
+            System.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+            
+            InitialContext ic = new InitialContext(p);
+            //InitialContext ic = new InitialContext();
             
             TopicConnectionFactory f = (TopicConnectionFactory) ic.lookup("FabricaTopicos");
             TopicConnection c = f.createTopicConnection();

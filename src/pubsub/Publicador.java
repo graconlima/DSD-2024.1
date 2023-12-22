@@ -18,7 +18,14 @@ public class Publicador {
     public Publicador(){
         try{
                         
-            InitialContext ic = new InitialContext();
+            Properties p = new Properties();
+            p.setProperty("org.omg.CORBA.ORBInitialHost", "10.25.2.30");
+            p.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+            
+            System.setProperty("org.omg.CORBA.ORBInitialHost", "10.25.2.30");
+            System.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+            
+            InitialContext ic = new InitialContext(p);
             
             TopicConnectionFactory tcf = (TopicConnectionFactory) ic.lookup("FabricaTopicos");
             TopicConnection c = tcf.createTopicConnection();
