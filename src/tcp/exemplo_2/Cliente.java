@@ -1,4 +1,4 @@
-package tcp;
+package tcp.exemplo_2;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class Cliente {
 
     static int porta = 1234;
-    static String endereco = "10.25.2.30";
+    static String endereco = "localhost";//"10.25.2.30";
 
     public static void main(String[] args) {
         try{
