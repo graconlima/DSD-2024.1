@@ -18,6 +18,7 @@ public class ExURL {
             
             System.out.println(huc.getContentLength());
             System.out.println(huc.getContentType());
+            System.out.println(huc.getRequestMethod());
             /*URLConnection uc = url.openConnection();
             System.out.println(uc.getContentType());
             InputStream is = uc.getInputStream();
